@@ -70,29 +70,218 @@
     <!-- FIM DIV DROPDOWN -->
   </header>
   <!-- **********FIM HEADER**********  -->
-  
-  <main>
-    <h1>How's the sky looking today?</h1>
-    Search for a city, e.g., New York
-    Search
-    Feels like
-    <!-- Insert temperature here -->
-    Humidity
-    <!-- Insert humidity here -->
-    Wind
-    <!-- Insert wind here -->
-    
-    Precipitation
-    <!-- Insert precipitation here -->
-    Daily forecast
-    <!-- Insert daily forecast for the next 7 days here -->
-    Hourly forecast
-    <!-- Insert hourly forecast for the selected day here -->
-  </main>
-
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+  <h1>How's the sky looking today?</h1>
+  <!-- SEARCH DIV -->
+  <div class="search-div">
+    <label for="search-input">
+      <img src="assets/images/icon-search.svg" alt="">
+      <input id="search-input" type="text" placeholder="Search for a place..."></input>
+    </label>
+    <button id="search-btn">Search</button>
   </div>
+
+  <!-- GRID LAYOUT -->  
+  <div class="layout">
+    <main class="content">
+      
+      <section class="banner">
+        <div id="city-date">
+          <span><strong>Berlim, Germany</strong></span>
+          <span>Tuesday, Aug 5, 2025</span>
+        </div>
+        <div id="temperature-now">
+          <img src="assets/images/icon-sunny.webp" alt="">
+          <span>20°</span>
+        </div>
+      </section>
+
+      <section class="grid-4">
+        <div class="card">
+          <h3>Feels like</h3>
+          <span>18°</span>
+        </div>
+
+        <div class="card">
+          <h3>Humidity</h3>
+          <span>46%</span>
+        </div>
+
+        <div class="card">
+          <h3>Wind</h3>
+          <span>14 km/h</span>
+        </div>
+
+        <div class="card">
+          <h3>Precipitation</h3>
+          <span>0 mm</span>
+        </div>
+      </section>
+
+      <section class="section-7">
+      <h2 class="section-title">Daily forecast</h2>
+
+      <div class="grid-7">
+        <div class="card">
+          <span>Tue</span>
+          <img src="assets/images/icon-rain.webp" alt="">
+          <div>
+            <span>20°</span>
+            <span>14°</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <span>Wed</span>
+          <img src="assets/images/icon-drizzle.webp" alt="">
+          <div>
+            <span>20°</span>
+            <span>14°</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <span>Thu</span>
+          <img src="assets/images/icon-partly-cloudy.webp" alt="">
+          <div>
+            <span>20°</span>
+            <span>14°</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <span>Fri</span>
+          <img src="assets/images/icon-snow.webp" alt="">
+          <div>
+            <span>20°</span>
+            <span>14°</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <span>Sat</span>
+          <img src="assets/images/icon-sunny.webp" alt="">
+          <div>
+            <span>20°</span>
+            <span>14°</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <span>Sun</span>
+          <img src="assets/images/icon-storm.webp" alt="">
+          <div>
+            <span>20°</span>
+            <span>14°</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <span>Mon</span>
+          <img src="assets/images/icon-overcast.webp" alt="">
+          <div>
+            <span>20°</span>
+            <span>14°</span>
+          </div>
+        </div>
+      </div>
+      </section>
+
+
+    </main>
+
+    <aside class="sidebar">
+      <h2>Hourly forecast</h2>
+      <div id="container-card-next-hour">
+        <div class="card-next-hour">
+          <div>
+            <img src="assets/images/icon-overcast.webp" alt="">
+            <span>3 PM</span>
+          </div>
+          <div>
+            <span>20°</span>
+          </div>
+        </div>
+
+        <div class="card-next-hour">
+          <div>
+            <img src="assets/images/icon-overcast.webp" alt="">
+            <span>3 PM</span>
+          </div>
+          <div>
+            <span>20°</span>
+          </div>
+        </div>
+
+        <div class="card-next-hour">
+          <div>
+            <img src="assets/images/icon-overcast.webp" alt="">
+            <span>3 PM</span>
+          </div>
+          <div>
+            <span>20°</span>
+          </div>
+        </div>
+
+        <div class="card-next-hour">
+          <div>
+            <img src="assets/images/icon-overcast.webp" alt="">
+            <span>3 PM</span>
+          </div>
+          <div>
+            <span>20°</span>
+          </div>
+        </div>
+        
+        <div class="card-next-hour">
+          <div>
+            <img src="assets/images/icon-overcast.webp" alt="">
+            <span>3 PM</span>
+          </div>
+          <div>
+            <span>20°</span>
+          </div>
+        </div>
+
+        <div class="card-next-hour">
+          <div>
+            <img src="assets/images/icon-overcast.webp" alt="">
+            <span>3 PM</span>
+          </div>
+          <div>
+            <span>20°</span>
+          </div>
+        </div>
+
+        <div class="card-next-hour">
+          <div>
+            <img src="assets/images/icon-overcast.webp" alt="">
+            <span>3 PM</span>
+          </div>
+          <div>
+            <span>20°</span>
+          </div>
+        </div>
+
+        <div class="card-next-hour">
+          <div>
+            <img src="assets/images/icon-overcast.webp" alt="">
+            <span>3 PM</span>
+          </div>
+          <div>
+            <span>20°</span>
+          </div>
+        </div>
+
+      </div>
+    </aside>
+</div>
+
+
+  <footer class="attribution">
+    <P>
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="https://github.com/Princesval" target="_blank">João Vitor Princesval Caetano</a>.
+    </P>
+  </footer>
 </body>
 </html>
