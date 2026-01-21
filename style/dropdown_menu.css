@@ -1,0 +1,32 @@
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+.dropdown button {
+    background-color: var(--Neutral800);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    color: var(--Neutral0);
+    cursor: pointer;
+}
+
+.dropdown label {
+    display: flex;
+    padding: 10px;
+}
+
+.dropdown .content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--Neutral800);
+}
+
+.dropdown:hover .content {
+    display: block;
+}

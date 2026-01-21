@@ -7,51 +7,88 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   
   <title>Frontend Mentor | Weather app</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style/root.css">
+  <link rel="stylesheet" href="style/dropdown_menu.css">
+  <link rel="stylesheet" href="style/style.css">
+
 </head>
 <body>
 
-  Units
+  <!-- **********HEADER********** -->
+  <header>
+    <!-- DIV LOGO -->
+    <div class="logo-div">
+      <img src="assets/images/logo.svg" alt="logo" id="logo">
+    </div>
+    <!-- FIM DIV LOGO -->
 
-  Switch to Imperial/Metric
+    <!-- DIV MENU DROPDOWN -->
+    <div class="dropdown">
+      <button>
+        <img src="assets/images/icon-units.svg" alt="">
+        <span>Units</span>
+        <img src="assets/images/icon-dropdown.svg" alt="">
+      </button>
 
-  Temperature
+      <!-- CONTEUDO DO MENU DROPDOWN -->
+      <div class="content">
+        <button>Switch to Imperial/Metric</button>
 
-  Celsius (°C)
-  Fahrenheit (°F)
+        <!-- Selecionar entre °C e °F -->
+        <h2>Temperature</h2>
+        <label for="celsius">
+          <input type="radio" name="temperature" value="celsius" id="celsius">Celsius (°C)
+        </label>
+        <label for="fahrenheit">
+          <input type="radio" name="temperature" value="celsius" id="fahrenheit">Fahrenheit (°F)
+        </label>
+        <!-- FIm  -->
 
-  Wind Speed
+        <!-- Selecionar entre KM/H e MPH -->
+        <h2>Wind Speed</h2>
+        <label for="kmh">
+          <input type="radio" name="speed" value="kmh" id="kmh">km/h
+        </label>
+        <label for="mph">
+          <input type="radio" name="speed" value="mph" id="mph">mph
+        </label>
+        <!-- FIm  -->
 
-  km/h
-  mph
+        <!-- Selecionar entre KM/H e MPH -->
+        <h2>Precipitation</h2>
+        <label for="mm">
+          <input type="radio" name="precipitation" value="mm" id="mm">Millimeters (mm)
+        </label>
+        <label for="in">
+          <input type="radio" name="precipitation" value="in" id="in">Inches (in)
+        </label>
+        <!-- FIm  -->
 
-  Precipitation
-
-  Millimeters (mm)
-  Inches (in)
-
-  How's the sky looking today?
-
-  Search for a city, e.g., New York
-  Search
-
-  Feels like
-  <!-- Insert temperature here -->
-
-  Humidity
-  <!-- Insert humidity here -->
-
-  Wind
-  <!-- Insert wind here -->   
+      </div>
+      <!-- FIM CONTEUDO DO MENU DROPDOWN -->
+    </div>
+    <!-- FIM DIV DROPDOWN -->
+  </header>
+  <!-- **********FIM HEADER**********  -->
   
-  Precipitation
-  <!-- Insert precipitation here -->
-
-  Daily forecast
-  <!-- Insert daily forecast for the next 7 days here -->
-
-  Hourly forecast
-  <!-- Insert hourly forecast for the selected day here -->
+  <main>
+    <h1>How's the sky looking today?</h1>
+    Search for a city, e.g., New York
+    Search
+    Feels like
+    <!-- Insert temperature here -->
+    Humidity
+    <!-- Insert humidity here -->
+    Wind
+    <!-- Insert wind here -->
+    
+    Precipitation
+    <!-- Insert precipitation here -->
+    Daily forecast
+    <!-- Insert daily forecast for the next 7 days here -->
+    Hourly forecast
+    <!-- Insert hourly forecast for the selected day here -->
+  </main>
 
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
