@@ -32,36 +32,53 @@
 
       <!-- CONTEUDO DO MENU DROPDOWN -->
       <div class="content">
-        <button>Switch to Imperial/Metric</button>
-
         <!-- Selecionar entre °C e °F -->
         <h2>Temperature</h2>
-        <label for="celsius">
-          <input type="radio" name="temperature" value="celsius" id="celsius">Celsius (°C)
+        <label class="radio-card">
+          <input type="radio" name="temperature" value="celsius" checked>
+          <span class="radio-text">Celsius (°C)</span>
+          <img src="assets/images/icon-checkmark.svg" class="radio-check" alt="">
         </label>
-        <label for="fahrenheit">
-          <input type="radio" name="temperature" value="celsius" id="fahrenheit">Fahrenheit (°F)
+
+        <label class="radio-card">
+          <input type="radio" name="temperature" value="fahrenheit">
+          <span class="radio-text">Fahrenheit (°F)</span>
+          <img src="assets/images/icon-checkmark.svg" class="radio-check" alt="">
         </label>
         <!-- FIm  -->
 
         <!-- Selecionar entre KM/H e MPH -->
         <h2>Wind Speed</h2>
-        <label for="kmh">
-          <input type="radio" name="speed" value="kmh" id="kmh">km/h
+
+        <label class="radio-card">
+          <input type="radio" name="speed" value="kmh" checked>
+          <span class="radio-text">km/h</span>
+          <img src="assets/images/icon-checkmark.svg" class="radio-check" alt="">
         </label>
-        <label for="mph">
-          <input type="radio" name="speed" value="mph" id="mph">mph
+
+        <label class="radio-card">
+          <input type="radio" name="speed" value="mph">
+          <span class="radio-text">mph</span>
+          <img src="assets/images/icon-checkmark.svg" class="radio-check" alt="">
         </label>
+
         <!-- FIm  -->
 
         <!-- Selecionar entre KM/H e MPH -->
         <h2>Precipitation</h2>
-        <label for="mm">
-          <input type="radio" name="precipitation" value="mm" id="mm">Millimeters (mm)
+
+        <label class="radio-card">
+          <input type="radio" name="precipitation" value="mm" checked>
+          <span class="radio-text">Millimeters (mm)</span>
+          <img src="assets/images/icon-checkmark.svg" class="radio-check" alt="">
         </label>
-        <label for="in">
-          <input type="radio" name="precipitation" value="in" id="in">Inches (in)
+
+        <label class="radio-card">
+          <input type="radio" name="precipitation" value="in">
+          <span class="radio-text">Inches (in)</span>
+          <img src="assets/images/icon-checkmark.svg" class="radio-check" alt="">
         </label>
+
         <!-- FIm  -->
 
       </div>
@@ -283,5 +300,6 @@
       Coded by <a href="https://github.com/Princesval" target="_blank">João Vitor Princesval Caetano</a>.
     </P>
   </footer>
+  <script src="index.js"></script>
 </body>
 </html>
