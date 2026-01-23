@@ -8,6 +8,71 @@ const grid4 = document.getElementById('section-grid-4');
 const grid7 = document.getElementById('section-grid-7');
 const sideBar = document.getElementById('container-card-next-hour');
 
+// Radios
+document.querySelectorAll('input[name="temperature"]').forEach(radio => {
+  radio.addEventListener('change', e => {
+    units.temperature = e.target.value;
+    updateUI();
+  });
+});
+
+document.querySelectorAll('input[name="speed"]').forEach(radio => {
+  radio.addEventListener('change', e => {
+    units.speed = e.target.value;
+    updateUI();
+  });
+});
+
+document.querySelectorAll('input[name="precipitation"]').forEach(radio => {
+  radio.addEventListener('change', e => {
+    units.precipitation = e.target.value;
+    updateUI();
+  });
+});
+
+let lastWeatherData = null;
+let lastCityData = null;
+
+function updateUI() {
+  if (!lastWeatherData || !lastCityData) return;
+
+  bannerHTML(lastCityData.name, lastCityData.country, lastWeatherData);
+  grid4HTML(lastWeatherData);
+  grid7HTML(lastWeatherData);
+  sideBarHTML(lastWeatherData);
+}
+
+const units = {
+  temperature: 'celsius',   // celsius / fahrenheit
+  speed: 'kmh',             // kmh / mph
+  precipitation: 'mm'       // mm / in
+};
+
+// Formatar celsius / fahrenheit
+function formatTemperature(value) {
+  if (units.temperature === 'fahrenheit') {
+    return Math.round(value * 9 / 5 + 32) + '°F';
+  }
+  return Math.round(value) + '°C';
+}
+
+// Formatar kmh / mph
+function formatWindSpeed(value) {
+  if (units.speed === 'mph') {
+    return Math.round(value / 1.609) + ' mph';
+  }
+  return Math.round(value) + ' km/h';
+}
+
+// Formatar mm / in
+function formatPrecipitation(value) {
+  if (units.precipitation === 'in') {
+    return (value / 25.4).toFixed(2) + ' in';
+  }
+  return value + ' mm';
+}
+
+
 // Formatar data 
 function formatDate(dateString) {
     const date = new Date(dateString);
@@ -109,7 +174,7 @@ function bannerHTML(cityName, countryName, data) {
         </div>
         <div id="temperature-now">
             <img src=${icon} alt="Weather icon">
-            <span>${weather.temperature_2m} C°</span>
+            <span>${formatTemperature(weather.temperature_2m)}</span>
         </div>
     `;
 }
@@ -130,12 +195,12 @@ function grid4HTML(data) {
 
         <div class="card">
             <h3>Wind</h3>
-            <span>${weather.wind_speed_10m} km/h</span>
+            <span>${formatWindSpeed(weather.wind_speed_10m)}</span>
         </div>
 
         <div class="card">
             <h3>Precipitation</h3>
-            <span>${weather.precipitation} mm</span>
+            <span>${formatPrecipitation(weather.precipitation)}</span>
         </div>
     `;
 }
@@ -169,8 +234,8 @@ function grid7HTML(data){
                 <span>${day}</span>
                 <img src="${icon}" alt="Weather icon">
                 <div>
-                    <span>${max}°</span>
-                    <span>${min}°</span>
+                    <span>${formatTemperature(max)}</span>
+                    <span>${formatTemperature(min)}</span>
                 </div>
             </div>
         `;
@@ -223,7 +288,7 @@ function sideBarHTML(data) {
             <span>${hour}</span>
             </div>
             <div>
-            <span>${temp}°</span>
+            <span>${formatTemperature(temp)}</span>
             </div>
         </div>
         `;
@@ -243,6 +308,9 @@ searchBtn.addEventListener('click', async() => {
     if (!cityData) return;
     // Pegar clima usando a localização
     const weatherData = await getWeather(cityData.latitude, cityData.longitude);
+    
+    lastCityData = cityData;
+    lastWeatherData = weatherData;
     bannerHTML(cityData.name, cityData.country, weatherData);
     grid4HTML(weatherData);
     grid7HTML(weatherData);
