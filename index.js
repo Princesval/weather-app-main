@@ -6,6 +6,7 @@ const cityInput = document.getElementById('search-input');
 const banner = document.getElementById('section-banner');
 const grid4 = document.getElementById('section-grid-4');
 const grid7 = document.getElementById('section-grid-7');
+const sideBar = document.getElementById('container-card-next-hour');
 
 // Formatar data 
 function formatDate(dateString) {
@@ -139,6 +140,7 @@ function grid4HTML(data) {
     `;
 }
 
+// Pegar o dia da semana abreviado (Fri, Mon, Sun...)
 function getWeekDay(dateStr) {
     const [year, month, day] = dateStr.split('-');
 
@@ -175,6 +177,59 @@ function grid7HTML(data){
     }
 }
 
+// Formatar hora para AM e PM
+function formatHour(dateStr) {
+  const date = new Date(dateStr);
+  let hour = date.getHours();
+  const period = hour >= 12 ? 'PM' : 'AM';
+
+  hour = hour % 12;
+  hour = hour === 0 ? 12 : hour;
+
+  return `${hour} ${period}`;
+}
+
+function roundHourDown(dateStr) {
+  const date = new Date(dateStr);
+  date.setMinutes(0, 0, 0); // zera minutos, segundos e ms
+  return date.getTime();
+}
+
+function sideBarHTML(data) {
+    const currentTime = data.current.time;
+    sideBar.innerHTML = '';
+
+    // arredondar hora atual para baixo
+    const nowRounded = new Date(data.current.time);
+    nowRounded.setMinutes(0, 0, 0);
+
+    // achar índice no hourly
+    const startIndex = data.hourly.time.findIndex(time =>
+        new Date(time).getTime() === nowRounded.getTime()
+    );
+
+    if (startIndex === -1) return;
+
+    // próximas 8 horas
+    for (let i = startIndex; i < startIndex + 8; i++) {
+        const hour = formatHour(data.hourly.time[i]);
+        const temp = Math.round(data.hourly.temperature_2m[i]);
+        const icon = getWeatherIcon(data.hourly.weathercode[i]);
+
+        sideBar.innerHTML += `
+        <div class="card-next-hour">
+            <div>
+            <img src="${icon}" alt="Weather icon">
+            <span>${hour}</span>
+            </div>
+            <div>
+            <span>${temp}°</span>
+            </div>
+        </div>
+        `;
+    }
+}
+
 // Pegar o click no botão
 searchBtn.addEventListener('click', async() => {
     const city = cityInput.value;
@@ -191,4 +246,5 @@ searchBtn.addEventListener('click', async() => {
     bannerHTML(cityData.name, cityData.country, weatherData);
     grid4HTML(weatherData);
     grid7HTML(weatherData);
+    sideBarHTML(weatherData);
 })
