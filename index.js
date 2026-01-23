@@ -5,6 +5,7 @@ const cityInput = document.getElementById('search-input');
 // Container HTML
 const banner = document.getElementById('section-banner');
 const grid4 = document.getElementById('section-grid-4');
+const grid7 = document.getElementById('section-grid-7');
 
 // Formatar data 
 function formatDate(dateString) {
@@ -96,7 +97,7 @@ async function getWeather(latitude, longitude) {
 
 function bannerHTML(cityName, countryName, data) {
     const weather = data.current;
-    const formattedDate = formatDate(data.current.time);
+    const formattedDate = formatDate(weather.time);
     const icon = getWeatherIcon(weather.weathercode)
     banner.innerHTML = '';
 
@@ -138,6 +139,42 @@ function grid4HTML(data) {
     `;
 }
 
+function getWeekDay(dateStr) {
+    const [year, month, day] = dateStr.split('-');
+
+    const date = new Date (
+        Number(year),
+        Number(month) - 1,
+        Number(day)
+    );
+
+    return date.toLocaleDateString('en-US',{
+        weekday: 'short'
+    });
+}
+
+function grid7HTML(data){
+    const dailyWeather = data.daily;
+    grid7.innerHTML = ''
+
+    for (let i = 0; i < 7; i++) {
+        const day = getWeekDay(dailyWeather.time[i]);
+        const icon = getWeatherIcon(dailyWeather.weathercode[i]);
+        const max = Math.round(dailyWeather.temperature_2m_max[i]);
+        const min = Math.round(dailyWeather.temperature_2m_min[i]);
+        grid7. innerHTML += `
+            <div class="card">
+                <span>${day}</span>
+                <img src="${icon}" alt="Weather icon">
+                <div>
+                    <span>${max}°</span>
+                    <span>${min}°</span>
+                </div>
+            </div>
+        `;
+    }
+}
+
 // Pegar o click no botão
 searchBtn.addEventListener('click', async() => {
     const city = cityInput.value;
@@ -149,9 +186,9 @@ searchBtn.addEventListener('click', async() => {
     // Latitude e Longitude
     const cityData = await getLocation(city);
     if (!cityData) return;
-    console.log(cityData);
     // Pegar clima usando a localização
     const weatherData = await getWeather(cityData.latitude, cityData.longitude);
     bannerHTML(cityData.name, cityData.country, weatherData);
     grid4HTML(weatherData);
+    grid7HTML(weatherData);
 })
