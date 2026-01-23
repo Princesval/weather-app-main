@@ -29,7 +29,6 @@ h1 {
 .search-div {
     display: flex;
     justify-content: center;
-    align-items: stretch;
 }
 
 .search-div input {
@@ -37,7 +36,6 @@ h1 {
     border: none;
     width: 450px;
     margin-left: 10px;
-    height: 30px;
     color: var(--Neutral0);
     padding-left: 5px;
     font-size: 1.2em;
@@ -257,18 +255,210 @@ footer a {
     color: var(--Neutral0);
 }
 
-@media (max-width: 900px) {
+@media (min-width: 481px) and (max-width: 1300px) {
+
+  body {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2.2em;
+    margin: 35px 0;
+  }
+
   .layout {
     grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 16px;
+  }
+
+  .content {
+    gap: 20px;
   }
 
   .sidebar {
-    order: -1;
-    height: 200px;
+    order: 99;
+    padding: 20px;
+  }
+
+  .search-div input {
+    width: 360px;
+    font-size: 1.1em;
+  }
+
+  #search-btn {
+    padding: 14px 20px;
+  }
+
+  .banner {
+    height: 190px;
+    padding: 20px;
+  }
+
+  #temperature-now span {
+    font-size: 4.2em;
+  }
+
+  #temperature-now img {
+    width: 90px;
   }
 
   .grid-4 {
     grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .grid-4 .card {
+    height: auto;
+  }
+
+  .grid-4 .card span {
+    font-size: 1.8em;
+  }
+
+  .grid-7 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .grid-7 > .card {
+    height: 200px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .grid-7 .card img {
+    width: 80px;
+    margin: auto;
+  }
+
+  .grid-7 .card span {
+    font-size: 1em;
+  }
+
+  .grid-7 .card div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .sidebar div.card-next-hour img {
+    width: 36px;
+  }
+
+  .sidebar div.card-next-hour span {
+    font-size: 1em;
   }
 }
 
+
+@media (max-width: 480px) {
+
+    body {
+        padding: 12px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+        margin: 30px 0;
+    }
+
+    .search-div {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-div label {
+        width: 90vw;
+        margin: 10px 0;
+    }
+
+    .search-div input {
+        width: 100%;
+        font-size: 1em;
+    }
+
+    #search-btn {
+        width: 90vw;
+        margin-left: 0;
+        margin-bottom: 30px;
+    }
+
+
+    .layout {
+        grid-template-columns: 1fr;
+        width: 100%;
+        margin: auto;
+        padding: 0;
+    }
+
+    .content {
+        gap: 16px;
+    }
+
+    .banner {
+        display: flex;
+        flex-direction: column;
+        height: 160px;
+        padding: 16px;
+        background-image: url(../assets/images/bg-today-small.svg);
+    }
+
+    #temperature-now span {
+        font-size: 3.5em;
+    }
+
+    #temperature-now img {
+        width: 70px;
+    }
+
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .grid-4 .card {
+        height: auto;
+    }
+
+    .grid-4 .card span {
+    color: var(--Neutral0);
+    font-size: 1.2em;
+    }
+
+    .grid-7 {
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: stretch;
+    }
+
+    .grid-7 > .card {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+     .grid-7 .card img {
+        width: 80px;
+        margin: auto;
+    }
+
+    .grid-7 .card span {
+        font-size: 0.9em;
+    }
+
+    .grid-7 .card div {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .sidebar {
+        order: 99;
+        margin-top: 10px;
+    }
+
+    footer {
+        margin-top: 50px;
+    }
+}
