@@ -86,7 +86,6 @@ function formatDate(dateString) {
 }
 
 // Função icon do clima
-
 function getWeatherIcon(code) {
     switch (code) {
         case 0:
@@ -254,18 +253,12 @@ function formatHour(dateStr) {
   return `${hour} ${period}`;
 }
 
-function roundHourDown(dateStr) {
-  const date = new Date(dateStr);
-  date.setMinutes(0, 0, 0); // zera minutos, segundos e ms
-  return date.getTime();
-}
-
 function sideBarHTML(data) {
     const currentTime = data.current.time;
     sideBar.innerHTML = '';
 
     // arredondar hora atual para baixo
-    const nowRounded = new Date(data.current.time);
+    const nowRounded = new Date(currentTime);
     nowRounded.setMinutes(0, 0, 0);
 
     // achar índice no hourly
