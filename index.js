@@ -160,8 +160,9 @@ async function getWeather(latitude, longitude) {
     
 }
 
+// HTML
 function bannerHTML(cityName, countryName, data) {
-    const weather = data.current;
+    const weather = data.current; // Pegar as informações
     const formattedDate = formatDate(weather.time);
     const icon = getWeatherIcon(weather.weathercode)
     banner.innerHTML = '';
@@ -178,8 +179,9 @@ function bannerHTML(cityName, countryName, data) {
     `;
 }
 
+// HTML
 function grid4HTML(data) {
-    const weather = data.current
+    const weather = data.current // Pegar as informações
     grid4.innerHTML = ''
     grid4.innerHTML = `
         <div class="card">
@@ -219,8 +221,9 @@ function getWeekDay(dateStr) {
     });
 }
 
+// HTML
 function grid7HTML(data){
-    const dailyWeather = data.daily;
+    const dailyWeather = data.daily; // Pegar as informações
     grid7.innerHTML = ''
 
     for (let i = 0; i < 7; i++) {
@@ -253,6 +256,7 @@ function formatHour(dateStr) {
   return `${hour} ${period}`;
 }
 
+// HTML
 function sideBarHTML(data) {
     const currentTime = data.current.time;
     sideBar.innerHTML = '';
